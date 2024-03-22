@@ -1,11 +1,6 @@
 package com.minod.jpa.config;
 
-import com.minod.itemservice.repository.ItemRepository;
-import com.minod.itemservice.repository.jpa.JpaItemRepository;
-import com.minod.itemservice.service.ItemService;
-import com.minod.itemservice.service.ItemServiceV1;
 import jakarta.persistence.EntityManager;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
@@ -15,5 +10,7 @@ public class JpaSetConfig {
     public JpaSetConfig(EntityManager em) {
         this.em = em;
     }
+
+
 
 }
