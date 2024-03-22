@@ -3,9 +3,8 @@ package com.minod.jpa.domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.ToString;
 
-@Entity
-@Table(name = "MBR")   // 테이블 id 원하는데로 지정가능,
 /** 자동으로 생성되는 테이블명은 mbr로 확인 됨.
  * create table public.mbr (
  *         id bigint not null,
@@ -13,6 +12,9 @@ import jakarta.persistence.Table;
  *         primary key (id)
  *     )
  */
+@Entity
+@Table(name = "MBR")   // 테이블 id 원하는데로 지정가능,
+@ToString
 public class Member {
     @Id
     private Long id;
