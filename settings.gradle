@@ -5,4 +5,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'jpa-sample-item-service'
+rootProject.name = 'jpa-exam'
