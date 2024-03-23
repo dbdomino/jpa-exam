@@ -1,6 +1,6 @@
 package com.minod.jpa;
 
-import com.minod.jpa.domain.Member;
+import com.minod.jpa.domain.Mbr1;
 import com.minod.jpa.repository.JpaTestRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -19,16 +19,6 @@ public class JpaTestRepositoryTest {
     @PersistenceUnit
     private EntityManagerFactory emf;
 
-//    @Test
-    void repoSave1(){
-        repository.save1();
-    }
-
-//    @Test
-    void repoSave2(){
-        repository.save2();
-    }
-
     @Test
     void find1() {repository.find1();}
     @Test
@@ -43,8 +33,8 @@ public class JpaTestRepositoryTest {
 
         // JPA에서 모든 변경 작업은 트랜잭션 안에서 작업 해야 한다. 트랜잭션 단위 안에서가 아니라면 실행이 안된다.
         try {
-            Member findMember = emc.find(Member.class, 1L);
-            findMember.setName("HelloADD");
+            Mbr1 findMember = emc.find(Mbr1.class, 1L);
+            findMember.setUsername("HelloADD");
             log.info("hihi hindMember result : {}", findMember.toString());
 
             tx.commit(); // 트랜잭션 종료
