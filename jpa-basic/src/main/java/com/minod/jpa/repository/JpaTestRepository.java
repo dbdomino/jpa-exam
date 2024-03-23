@@ -1,6 +1,6 @@
 package com.minod.jpa.repository;
 
-import com.minod.jpa.domain.Member;
+import com.minod.jpa.domain.Mbr1;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -25,37 +25,37 @@ public class JpaTestRepository {
     @Transactional
     public void find1() {
 //        Member findMember = em.find(Member.class, 1L);
-        List<Member> list = em.createQuery("select m from Member as m", Member.class)
+        List<Mbr1> list = em.createQuery("select m from Mbr1 as m", Mbr1.class)
                         .getResultList();
         // 결과를 ArrayList로 받아옴. 반복돌려 출력
-        for (Member member : list) {
-            System.out.println("member "+ member.getId() +" : " + member.getName());
+        for (Mbr1 member : list) {
+            System.out.println("member "+ member.getId() +" : " + member.getUsername());
         }
     }
 
     @Transactional
     public void find2() {
 //        Member findMember = em.find(Member.class, 1L);
-        List<Member> list = em.createQuery("select m from Member as m", Member.class)
+        List<Mbr1> list = em.createQuery("select m from Mbr1 as m", Mbr1.class)
                 .setFirstResult(5) // 시작점부터 끝점까지 지정가능
                 .setMaxResults(7)
                 .getResultList();
         // 결과를 ArrayList로 받아옴. 반복돌려 출력
-        for (Member member : list) {
-            System.out.println("member "+ member.getId() +" : " + member.getName());
+        for (Mbr1 member : list) {
+            System.out.println("member "+ member.getId() +" : " + member.getUsername());
         }
     }
 
     @Transactional
     public void update1() {
-        Member findMember = em.find(Member.class, 1L);
-        findMember.setName("HelloADD");
+        Mbr1 findMember = em.find(Mbr1.class, 1L);
+        findMember.setUsername("ModifyUsername");
         log.info("hihi hindMember result : {}", findMember.toString());
     }
 
 
 
-    public void save1() {
+    public void saveCustom() {
         EntityManager emc = emf.createEntityManager();
 
         EntityTransaction tx = emc.getTransaction(); // 트랜잭션 얻어옴.
@@ -63,9 +63,8 @@ public class JpaTestRepository {
 
         // JPA에서 모든 변경 작업은 트랜잭션 안에서 작업 해야 한다. 트랜잭션 단위 안에서가 아니라면 실행이 안된다.
         try {
-            Member member1 = new Member();
-            member1.setId(1L);
-            member1.setName("HelloA");
+            Mbr1 member1 = new Mbr1();
+            member1.setUsername("HelloA");
             System.out.println(member1);
 
             emc.persist(member1);
@@ -86,9 +85,9 @@ public class JpaTestRepository {
 
     @Transactional
     public void save2() {
-        Member member2 = new Member();
+        Mbr1 member2 = new Mbr1();
         member2.setId(2L);
-        member2.setName("HelloB");
+        member2.setUsername("HelloB");
         System.out.println(member2);
 
         em.persist(member2);
