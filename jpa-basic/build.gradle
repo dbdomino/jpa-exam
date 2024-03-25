@@ -58,7 +58,6 @@ dependencies {
 	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
 	// === QueryDsl 끝 ===
-
 	//postgre driver
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
 }
