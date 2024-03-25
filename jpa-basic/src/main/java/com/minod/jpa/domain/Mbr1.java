@@ -19,6 +19,7 @@ import lombok.ToString;
 @ToString
 public class Mbr1 {
     @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MBR_SEQ_GENERATOR")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MBR_SEQ_GENERATOR")
     private Long id;
     private String username;
