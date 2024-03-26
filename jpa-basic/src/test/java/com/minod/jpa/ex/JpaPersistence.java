@@ -52,7 +52,7 @@ public class JpaPersistence {
         }
     }
 
-    @Test
+//    @Test
     void yesPersist() {
         EntityManager em = emf.createEntityManager();
 
@@ -85,7 +85,7 @@ public class JpaPersistence {
         }
     }
 
-    @Test
+//    @Test
     @DisplayName("양방향 연관관계")
     void eachPersist() {
         EntityManager em = emf.createEntityManager();
@@ -111,6 +111,47 @@ public class JpaPersistence {
 
             MbrEach findMember = em.find(MbrEach.class, member.getId());
             List<MbrEach> findMembers = findMember.getTeamEach().getMbrEach(); // findMember 가 속한 팀의 모든 맴버들
+
+            for (MbrEach m : findMembers) {
+                System.out.println("MbrEach 양방향참조 Member : "+ m.getUsername());
+            }
+
+            tx.commit(); // 트랜잭션 종료
+        } catch (Exception e) {
+            System.out.println("에러");
+            tx.rollback();
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+
+    @Test
+    @DisplayName("양방향 연관관계시 주인 관계에서 입력/수정 가능해짐")
+    void eachPersist2() {
+        EntityManager em = emf.createEntityManager();
+
+        EntityTransaction tx = em.getTransaction(); // 트랜잭션 얻어옴.
+        tx.begin(); // 트랜잭션 시작
+
+        try {
+            TeamEach team = em.find(TeamEach.class, "2");
+
+            MbrEach member = new MbrEach();
+            member.setUsername("monamiA14");
+            member.setTeamEach(team); // ㅇ
+            em.persist(member);
+
+//            team.getMbrEach().add(member); // team 에서 선언한 단방향 연관관계(주인 기준으로 역방향 연관관계)에 add시켜봐짜 member에 실제 적용안된.
+//            em.persist(team);
+//
+//            em.flush();
+//            em.clear();
+
+            MbrEach findMember = em.find(MbrEach.class, member.getId());
+            List<MbrEach> findMembers = findMember.getTeamEach().getMbrEach(); // findMember 가 속한 팀의 모든 맴버들
+            // 단순히 find한건 Member객체 하나 뿐이다.
+            // 그런데 해당하는 team의 멤버들 정보가 모두 조회 가능하다.
 
             for (MbrEach m : findMembers) {
                 System.out.println("MbrEach 양방향참조 Member : "+ m.getUsername());
