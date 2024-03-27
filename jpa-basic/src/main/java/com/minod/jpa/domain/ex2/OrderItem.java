@@ -2,7 +2,7 @@ package com.minod.jpa.domain.ex2;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 public class OrderItem {
     @Id @GeneratedValue
     @Column(name = "ORDER_ITEM_ID")
