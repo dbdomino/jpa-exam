@@ -1,10 +1,9 @@
 package com.minod.jpa.domain.ex;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
-@Entity
+//@Entity
 public class Member {
     @Id
     @Column(name= "MEMBER_ID")

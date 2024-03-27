@@ -1,11 +1,10 @@
 package com.minod.jpa.domain.ex;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Entity
+//@Entity
 public class Item {
     @Id @GeneratedValue
     @Column(name = "ITEM_ID")// 컬럼 이름과 객체에서 쓸 이름이 다른 경우다.
