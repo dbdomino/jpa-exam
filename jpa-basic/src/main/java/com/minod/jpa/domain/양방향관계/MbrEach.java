@@ -20,7 +20,8 @@ public class MbrEach {
 
     @ManyToOne  // JPA한테 연관 관계를 알려주기 위해서 어노테이션, 사용 누가 Many고 누가 One인지 구분해줘야 함. DB에서 사용되는 기준을 JPA에 알려주기위함.
     // DB에선 Member가 Many, Team이 One 이다. 그래서 @ManyToOne 을 사용함.
-    @JoinColumn(name = "TEAM_ID") // 대상 엔티티의 컬럼 이름 알려줌.
+//    @JoinColumn(name = "TEAM_ID") // 대상 엔티티의 컬럼 이름 알려줌.
+    @JoinColumn(name = "TEAM_ID", insertable = false, updatable = false) // 참조한 teamEach에 뭔갈 넣는다고해서 추가로 team테이블에 insert나 update를 날리지 않는 설정.
     private TeamEach teamEach; // 기본적으로 eitity 객체가 들어가면 어노테이션으로 참조관계 설정 반드시 해줘야 하는구나.
 
     public MbrEach(){}
