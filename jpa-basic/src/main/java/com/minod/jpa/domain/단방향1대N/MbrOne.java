@@ -1,10 +1,9 @@
 package com.minod.jpa.domain.단방향1대N;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-@Entity
+//@Entity
 public class MbrOne {
     @Id
     @GeneratedValue
