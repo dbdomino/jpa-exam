@@ -1,6 +1,6 @@
 package com.minod.jpa;
 
-import com.minod.jpa.domain.Mbr3;
+import com.minod.jpa.domain.MemberSequenceGenerator;
 import com.minod.jpa.repository.JpaSaveRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -30,7 +30,7 @@ public class JpaUpdateTest {
 
         try {
             // 이렇게만 해서는 수정이 안된다. 비영속 상태의 객체이기 때문이다.
-            Mbr3 member1 = new Mbr3();
+            MemberSequenceGenerator member1 = new MemberSequenceGenerator();
             member1.setId(400L);
             member1.setUsername("MynameDD");
 
@@ -59,7 +59,7 @@ public class JpaUpdateTest {
 
         try {
             // 이렇게만 해서는 수정이 안된다. 비영속 상태의 객체이기 때문이다.
-            Mbr3 member1 = em.find(Mbr3.class, 300L);
+            MemberSequenceGenerator member1 = em.find(MemberSequenceGenerator.class, 300L);
             member1.setUsername("Myname302"); // 수정하기
 //            em.detach(member1); // update취소를 위한 detach 는 문제없이 가능
 
