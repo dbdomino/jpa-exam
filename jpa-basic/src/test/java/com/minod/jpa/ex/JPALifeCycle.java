@@ -1,6 +1,6 @@
 package com.minod.jpa.ex;
 
-import com.minod.jpa.domain.Mbr3;
+import com.minod.jpa.domain.MemberSequenceGenerator;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -22,7 +22,7 @@ public class JPALifeCycle {
         tx.begin(); // 트랜잭션 시작
         try {
             // 비영속 상태
-            Mbr3 member = new Mbr3();
+            MemberSequenceGenerator member = new MemberSequenceGenerator();
             member.setId(300L);
             member.setUsername("Myname300");
 
