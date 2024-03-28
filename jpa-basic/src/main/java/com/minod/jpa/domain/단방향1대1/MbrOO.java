@@ -2,7 +2,7 @@ package com.minod.jpa.domain.단방향1대1;
 
 import jakarta.persistence.*;
 
-@Entity
+//@Entity
 public class MbrOO {
     @Id
     @GeneratedValue
