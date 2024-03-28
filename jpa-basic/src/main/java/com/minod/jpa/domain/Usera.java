@@ -2,9 +2,7 @@ package com.minod.jpa.domain;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
-@Entity
+//@Entity
 @SequenceGenerator(
         name = "USERA_SEQ_GENERATOR",
         sequenceName = "USERA_SEQ",

@@ -10,7 +10,7 @@ import lombok.ToString;
  *         primary key (id)
  *     )
  */
-@Entity
+//@Entity
 //@Table(name = "MBR")   // 테이블 id 원하는데로 지정가능,
 @SequenceGenerator(
         name = "MBR2_SEQ_GENERATOR",

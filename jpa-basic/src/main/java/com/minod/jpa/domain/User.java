@@ -2,12 +2,9 @@ package com.minod.jpa.domain;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 
-@Entity
+//@Entity
 /**
  * create table public.user (
  *         id bigint not null,
