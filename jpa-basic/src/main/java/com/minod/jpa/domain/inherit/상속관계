@@ -1,0 +1,16 @@
+JPA에서 상속관계 매핑도 지원함.
+db에선 상속관계 라는게 없는데 JPA에서 상속관계 매핑을 왜 지원하느냐?
+
+db에서 supertype, subtype으로된 테이블관계를
+객체에서 상속관계로 구현하는 것이다. (즉 상속관계 매핑을 지원한다는 것이다.)
+
+- @Inheritance([strategy=InheritanceType.XXX])
+• JOINED: 조인 전략
+• SINGLE_TABLE: 단일 테이블 전략
+• TABLE_PER_CLASS: 구현 클래스마다 테이블 전략
+//@Inheritance(strategy= InheritanceType.JOINED)
+//@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
+//@Inheritance(strategy= InheritanceType.TABLE_PER_CLASS)
+
+- @DiscriminatorColumn(name=“DTYPE”)
+- @DiscriminatorValue(“XXX”)
