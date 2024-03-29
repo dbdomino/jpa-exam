@@ -1,0 +1,4 @@
+• Order -> Delivery를 영속성 전이 ALL 설정
+• Order -> OrderItem을 영속성 전이 ALL 설정
+
+Order 클래스에 2군데 옵션 추가
