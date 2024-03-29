@@ -2,13 +2,6 @@ package com.minod.jpa.domain.양방향관계;
 
 import jakarta.persistence.*;
 
-/** 자동으로 생성되는 테이블명은 mbr로 확인 됨.
- * create table public.mbr_persist (
- *         id bigint not null,
- *         name varchar(255),
- *         primary key (id)
- *     )
- */
 // 양방향 관계는 단방향 관계들이 서로 마주보는 상태, 주인 참조 구분이 필요해짐, mappedBy 쓰는쪽은 주인이 아님.
 @Entity
 public class MbrEach {
@@ -61,8 +54,7 @@ public class MbrEach {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
+    public String getValue() {
 //        return "{id : "+id+", username: "+username+", teamId: "+teamId+"}";
         return "{id : "+id+", username: "+username+", teamId: "+teamEach.getId()+"}";
 //        return "{id : "+id+", username: "+username+"}";
