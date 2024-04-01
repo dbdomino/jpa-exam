@@ -31,4 +31,12 @@ public class TeamJpql {
     public void setName(String name) {
         this.name = name;
     }
+
+    public List<MemberJpql> getMemberJpqlList() {
+        return memberJpqlList;
+    }
+
+    public void setMemberJpqlList(List<MemberJpql> memberJpqlList) {
+        this.memberJpqlList = memberJpqlList;
+    }
 }
