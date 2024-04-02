@@ -12,7 +12,7 @@ public class TeamJpql {
     private Long id;
     private String name;
 
-    // 양방향 만들기위해 추가
+//    @BatchSize(size=100)
     @OneToMany(mappedBy = "teamJpql")
     private List<MemberJpql> memberJpqlList = new ArrayList<>(); // 메모리가 사용되더라도 이렇게 new ArrayList<>(); 하는걸 권장한다고 함.
 
@@ -38,5 +38,13 @@ public class TeamJpql {
 
     public void setMemberJpqlList(List<MemberJpql> memberJpqlList) {
         this.memberJpqlList = memberJpqlList;
+    }
+
+    @Override
+    public String toString() {
+        return "TeamJpql{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
