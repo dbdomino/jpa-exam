@@ -17,6 +17,7 @@ public class MemberJpql extends BaseEmbeded {
     private Integer age;
 
     @ManyToOne(fetch = FetchType.LAZY) // 다대일 관계일 경우 항상 지연로딩되도록
+//    @ManyToOne // 다대일 관계일 경우 항상 지연로딩되도록
     @JoinColumn(name="TEAM_ID") // 이게 외래키로 있어서 설정해줌.
     private TeamJpql teamJpql;
 
