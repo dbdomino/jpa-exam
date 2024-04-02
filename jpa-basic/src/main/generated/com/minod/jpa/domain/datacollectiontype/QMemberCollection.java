@@ -20,7 +20,7 @@ public class QMemberCollection extends EntityPathBase<MemberCollection> {
 
     public static final QMemberCollection memberCollection = new QMemberCollection("memberCollection");
 
-    public final ListPath<AddressHistory, SimplePath<AddressHistory>> addressHistories = this.<AddressHistory, SimplePath<AddressHistory>>createList("addressHistories", AddressHistory.class, SimplePath.class, PathInits.DIRECT2);
+    public final ListPath<AddressHistory, QAddressHistory> addressHistories = this.<AddressHistory, QAddressHistory>createList("addressHistories", AddressHistory.class, QAddressHistory.class, PathInits.DIRECT2);
 
     public final SetPath<String, StringPath> favoriteFoods = this.<String, StringPath>createSet("favoriteFoods", String.class, StringPath.class, PathInits.DIRECT2);
 
