@@ -112,7 +112,7 @@ public class JpqlJoinTest {
             List<MemberJpql> resultList = em.createQuery(jpql, MemberJpql.class)
                     .getResultList();
             for (MemberJpql member : resultList) {
-                System.out.println(member);
+                System.out.println(member + ", TeamName:"+member.getTeamJpql().getName()) ;
             }
 
             tx.commit(); // 트랜잭션 종료
