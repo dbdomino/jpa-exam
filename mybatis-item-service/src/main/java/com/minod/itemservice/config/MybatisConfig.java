@@ -8,7 +8,7 @@ import com.minod.itemservice.service.ItemServiceV1;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class MybatisConfig {
 
