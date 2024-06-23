@@ -57,6 +57,9 @@ dependencies {
 	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
 	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
+	// thymeleaf 자동 적용, 재시작없이해줌
+	implementation 'org.springframework.boot:spring-boot-devtools'
+
 	// === QueryDsl 끝 ===
 	//postgre driver
 	implementation group: 'org.postgresql', name: 'postgresql', version: '42.6.0'
