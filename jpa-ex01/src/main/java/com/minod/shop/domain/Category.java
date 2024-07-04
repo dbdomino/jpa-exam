@@ -1,5 +1,6 @@
 package com.minod.shop.domain;
 
+import com.minod.shop.domain.Item.Item;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
