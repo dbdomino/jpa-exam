@@ -1,0 +1,56 @@
+자바에서 Date, DateTime, LocalDateTime은 모두 날짜와 시간을 다루기 위한 클래스들이지만, 각각의 용도와 기능에는 차이가 있습니다. 주요 차이점들을 아래에 정리하겠습니다.
+
+1. Date 클래스
+패키지: java.util.Date
+특징:
+자바의 초창기부터 존재하던 클래스.
+날짜와 시간을 표현하기 위해 사용.
+Date 클래스는 본래는 잘 설계된 클래스가 아니며, 여러 가지 문제점을 가지고 있음.
+대부분의 메서드는 deprecated(사용 중지) 상태.
+시간대(time zone)를 고려하지 않음.
+단점:
+날짜와 시간을 조작하는데 비직관적이고 불편함.
+java.util.Calendar와 함께 사용해야 하는 경우가 많음.
+java
+코드 복사
+import java.util.Date;
+
+Date date = new Date();
+System.out.println(date);
+2. DateTime 클래스
+자바 표준 라이브러리에는 DateTime이라는 클래스가 존재하지 않습니다. 아마도 사용자가 DateTime을 사용하려고 하는 경우는 Joda-Time 라이브러리를 의미하는 것일 수 있습니다.
+Joda-Time 라이브러리:
+자바 8 이전에 날짜와 시간을 다루기 위한 라이브러리.
+Joda-Time의 DateTime 클래스는 자바 8 이전의 Date와 Calendar의 문제점을 해결하려고 만들어짐.
+자바 8의 java.time 패키지가 도입된 이후로는 Joda-Time 대신 java.time 패키지의 클래스를 사용하는 것이 권장됨.
+3. LocalDateTime 클래스
+패키지: java.time.LocalDateTime
+특징:
+자바 8에서 도입된 java.time 패키지에 포함된 클래스.
+JSR-310 표준을 따름.
+날짜와 시간을 표현하지만, 시간대(time zone) 정보는 포함하지 않음.
+날짜와 시간을 조작하는 다양한 메서드 제공 (예: plusDays, minusHours, withMonth 등).
+불변(immutable) 객체로 설계되어 있어 스레드 안전(thread-safe).
+java
+코드 복사
+import java.time.LocalDateTime;
+
+LocalDateTime localDateTime = LocalDateTime.now();
+System.out.println(localDateTime);
+4. ZonedDateTime 클래스
+패키지: java.time.ZonedDateTime
+특징:
+자바 8에서 도입된 java.time 패키지에 포함된 클래스.
+날짜와 시간, 그리고 시간대(time zone)를 포함하여 표현.
+시간대가 필요한 경우에 사용.
+java
+코드 복사
+import java.time.ZonedDateTime;
+
+ZonedDateTime zonedDateTime = ZonedDateTime.now();
+System.out.println(zonedDateTime);
+요약
+Date (java.util.Date): 오래된 클래스, 날짜와 시간을 다루지만 많은 메서드가 deprecated 상태. 시간대 정보를 고려하지 않음.
+LocalDateTime (java.time.LocalDateTime): 자바 8에서 도입된 클래스, 날짜와 시간을 다루며 불변 객체, 시간대 정보는 포함하지 않음.
+ZonedDateTime (java.time.ZonedDateTime): 자바 8에서 도입된 클래스, 날짜와 시간, 그리고 시간대를 포함하여 다룸.
+자바 8 이후로는 java.time 패키지의 클래스를 사용하는 것이 권장되며, 이들은 더 직관적이고 사용하기 편리한 API를 제공합니다.

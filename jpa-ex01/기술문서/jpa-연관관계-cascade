@@ -1,0 +1,59 @@
+@OneToMany 어노테이션의 cascade 속성은 부모 엔티티에서 수행된 특정 작업이 연관된 자식 엔티티로 전파(cascade)되는 방식을 지정합니다. 이는 부모 엔티티와 자식 엔티티 간의 연관 관계에서, 부모 엔티티에 대한 작업(예: 저장, 삭제 등)이 자식 엔티티에도 자동으로 수행되도록 하는 데 사용됩니다.
+CascadeType 옵션은 여러 가지가 있으며, 각 옵션이 수행하는 작업은 다음과 같습니다:
+
+CascadeType 옵션
+CascadeType.ALL:
+
+모든 CascadeType 옵션을 포함합니다. 즉, 모든 작업이 연관된 엔티티로 전파됩니다.
+예: PERSIST, MERGE, REMOVE, REFRESH, DETACH 등.
+CascadeType.PERSIST:
+
+부모 엔티티가 영속화(persist)될 때, 연관된 자식 엔티티도 함께 영속화됩니다.
+예: entityManager.persist(parent)를 호출하면 자식 엔티티들도 자동으로 저장됩니다.
+CascadeType.MERGE:
+
+부모 엔티티가 병합(merge)될 때, 연관된 자식 엔티티도 함께 병합됩니다.
+예: entityManager.merge(parent)를 호출하면 자식 엔티티들도 업데이트됩니다.
+CascadeType.REMOVE:
+
+부모 엔티티가 삭제(remove)될 때, 연관된 자식 엔티티도 함께 삭제됩니다.
+예: entityManager.remove(parent)를 호출하면 자식 엔티티들도 삭제됩니다.
+CascadeType.REFRESH:
+
+부모 엔티티가 새로고침(refresh)될 때, 연관된 자식 엔티티도 함께 새로고침됩니다.
+예: entityManager.refresh(parent)를 호출하면 자식 엔티티들도 데이터베이스에서 다시 읽어옵니다.
+CascadeType.DETACH:
+
+부모 엔티티가 분리(detach)될 때, 연관된 자식 엔티티도 함께 분리됩니다.
+예: entityManager.detach(parent)를 호출하면 자식 엔티티들도 영속성 컨텍스트에서 분리됩니다.
+
+예제
+주문과 주문 항목 간의 연관 관계에서, 주문이 저장되거나 삭제될 때 해당 주문의 항목들도 함께 저장되거나 삭제되도록 설정하려면 다음과 같이 할 수 있습니다:
+
+java
+코드 복사
+@Entity
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItem> orderItems = new ArrayList<>();
+}
+
+@Entity
+public class OrderItem {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private Order order;
+}
+이 경우, Order 엔티티에 대한 작업이 OrderItem 엔티티로 전파됩니다:
+
+Order가 저장(persist)되면, 해당 Order에 연결된 모든 OrderItem도 함께 저장됩니다.
+Order가 삭제(remove)되면, 해당 Order에 연결된 모든 OrderItem도 함께 삭제됩니다.
+cascade = CascadeType.ALL을 사용하면, 부모 엔티티에 수행된 모든 작업이 자식 엔티티에 동일하게 적용되므로, 부모-자식 관계의 데이터 일관성을 유지하는 데 유용합니다.
