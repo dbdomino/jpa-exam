@@ -33,6 +33,9 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 
+	// 검증을 위해 의존성추가
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//H2 데이터베이스 추가
 	runtimeOnly 'com.h2database:h2'
