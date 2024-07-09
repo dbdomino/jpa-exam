@@ -31,6 +31,13 @@ spring:
       enabled: true
       max-file-size: 10MB
       max-request-size: 10MB
+  ## Thymeleaf 설정 https://docs.spring.io/spring-boot/docs/2.1.7.RELEASE/reference/html/common-application-properties.html
+  ## 스프링 부트 타임리프 viewName 매핑을 아래처럼 하겠다는 설정이다. 반환한 문자( `home` )과 스프링부트 설정 `prefix` , `suffix` 정보를 사용해서 렌더링할 뷰( `html` )를 찾는다.
+  #`resources:templates/` +{ViewName}+ `.html`
+  #`resources:templates/home.html`
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 
 server:
   servlet:
@@ -57,12 +64,12 @@ logging:
       minod:
         controller: info
 
-
 # MyBatis 설정 추가
 #mybatis.type-aliases-package=com.minod.itemservice.domain
 #mybatis.configuration.map-underscore-to-camel-case=true
 # mybatis 로그레벨 추가
 #logging.level.com.minod.itemservice.repository.mybatis=trace
+
 
 
 
