@@ -11,5 +11,6 @@ import lombok.Setter;
 @Getter @Setter
 public class Book extends Item {
     private String author;
-    private String ibsn;
+    private String isbn;
+
 }
