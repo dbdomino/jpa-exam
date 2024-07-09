@@ -1,6 +1,7 @@
 package com.minod.shop.service;
 
 import com.minod.shop.domain.Member;
+import com.minod.shop.domain.valuetype.Address;
 import com.minod.shop.repository.MemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,7 +33,7 @@ public class MemberServiceTest {
         // given
         Member member = new Member();
         member.setName("minod001");
-
+        member.setAddress(new Address("서울", "강가", "123-123"));
         // When
         Long savedId = memberService.join(member); // Service에서 join하면 회원가입한 멤버id를 반환함.
 
